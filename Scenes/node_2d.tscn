@@ -40,3 +40,5 @@ texture = ExtResource("8_hvaui")
 position = Vector2(1076, -682)
 
 [node name="Node" type="Node" parent="."]
+
+[node name="Node" type="Node" parent="Node"]
