@@ -12,7 +12,7 @@ config_version=5
 
 config/name="One More Box"
 run/main_scene="res://Scenes/node_2d.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
 [display]
