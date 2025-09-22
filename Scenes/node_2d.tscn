@@ -38,3 +38,5 @@ texture = ExtResource("8_hvaui")
 
 [node name="CeilingFan" parent="." instance=ExtResource("7_v7gqg")]
 position = Vector2(1076, -682)
+
+[node name="Node" type="Node" parent="."]
