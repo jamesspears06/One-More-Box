@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://c56xp8k4apjrw"]
+
+[ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_6whob"]
+[ext_resource type="PackedScene" uid="uid://bl8u5r7w24jug" path="res://Scenes/controller.tscn" id="2_6whob"]
+[ext_resource type="Texture2D" uid="uid://csj4yx6dp6yvo" path="res://Sprites/magnet.png" id="6_chwn1"]
+[ext_resource type="PackedScene" uid="uid://c0yv0x0sudyr5" path="res://Scenes/card.tscn" id="6_tx0tn"]
+[ext_resource type="PackedScene" uid="uid://nqg1cls1i4o5" path="res://Scenes/Objects/blutac.tscn" id="6_wjtap"]
+[ext_resource type="PackedScene" uid="uid://b58ynxf2njtdr" path="res://Scenes/ceiling_fan.tscn" id="7_v7gqg"]
+[ext_resource type="PackedScene" uid="uid://dktfhjiehqb0e" path="res://Scenes/Objects/rock.tscn" id="7_wjtap"]
+[ext_resource type="Texture2D" uid="uid://b255sj810ywtq" path="res://Sprites/blutac.png" id="8_hvaui"]
+[ext_resource type="PackedScene" uid="uid://ywpq0o0uetah" path="res://Scenes/Objects/magnet.tscn" id="8_v7gqg"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_6whob")]
+
+[node name="Controller" parent="." instance=ExtResource("2_6whob")]
+position = Vector2(-1, 514)
+
+[node name="Sprite2D" parent="." instance=ExtResource("6_tx0tn")]
+visible = false
+position = Vector2(0, 864)
+object = ExtResource("7_wjtap")
+
+[node name="Sprite2D2" parent="." instance=ExtResource("6_tx0tn")]
+position = Vector2(-276, 862)
+object = ExtResource("8_v7gqg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2"]
+texture = ExtResource("6_chwn1")
+
+[node name="Sprite2D3" parent="." instance=ExtResource("6_tx0tn")]
+position = Vector2(276, 866)
+object = ExtResource("6_wjtap")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D3"]
+texture = ExtResource("8_hvaui")
+
+[node name="CeilingFan" parent="." instance=ExtResource("7_v7gqg")]
+position = Vector2(1076, -682)

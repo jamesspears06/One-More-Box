@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl8u5r7w24jug"]
+
+[ext_resource type="Texture2D" uid="uid://bql8578uh3a2n" path="res://Sprites/controller.png" id="1_jldtq"]
+[ext_resource type="Texture2D" uid="uid://cvf4187roolon" path="res://Sprites/controller_shard.png" id="2_jf33l"]
+
+[sub_resource type="GDScript" id="GDScript_jf33l"]
+script/source = "extends RigidBody2D
+
+@onready var ceiling_fan = get_parent().get_node(\"CeilingFan\")
+@onready var fan_area = ceiling_fan.get_node(\"Area2D\")
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+
+func _process(delta: float) -> void:
+	if fan_area.get_overlapping_bodies().has(self): 
+		sprite_2d.visible = false
+		cpu_particles_2d.emitting = true
+"
+
+[node name="RigidBody2D" type="RigidBody2D"]
+can_sleep = false
+script = SubResource("GDScript_jf33l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_jldtq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, 53, -37, 25, 33, 26, 62, 53, 68, 53, 81, 41, 82, 18, 62, -40, 54, -49, 39, -54, -41, -54, -56, -48, -64, -41, -84, 21, -84, 38, -71, 53)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+emitting = false
+amount = 18
+texture = ExtResource("2_jf33l")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+initial_velocity_min = 280.22
+initial_velocity_max = 456.04
+angular_velocity_min = -150.0
+angular_velocity_max = 150.0
+scale_amount_min = 0.1
+scale_amount_max = 0.15

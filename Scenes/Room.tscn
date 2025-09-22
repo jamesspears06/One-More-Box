@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://867cnwp2opxe"]
+
+[ext_resource type="Texture2D" uid="uid://v3yg74vv7hx3" path="res://Sprites/room.png" id="1_gw2vq"]
+[ext_resource type="Texture2D" uid="uid://bjwhmehqjjojq" path="res://Sprites/window_panel.png" id="2_nn86p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(5876, 1706)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(1186, 474)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(1153, 567)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
+size = Vector2(5891, 1265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(1310, 1470)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Room" type="Sprite2D" parent="."]
+texture = ExtResource("1_gw2vq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(72, 1427)
+shape = SubResource("RectangleShape2D_0e48y")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-2282, -649)
+shape = SubResource("RectangleShape2D_epypp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-2267.5, 291.5)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(70.5, -1512.5)
+shape = SubResource("RectangleShape2D_q6r6c")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(2374, -153)
+shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(0, 14.4999)
+scale = Vector2(1, 1.01343)
+texture = ExtResource("2_nn86p")

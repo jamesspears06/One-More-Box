@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://nqg1cls1i4o5"]
+
+[ext_resource type="Texture2D" uid="uid://b255sj810ywtq" path="res://Sprites/blutac.png" id="1_h2hug"]
+
+[sub_resource type="GDScript" id="GDScript_h2hug"]
+script/source = "extends RigidBody2D
+
+var card
+var attached_objects:= []
+
+func _on_button_button_down() -> void: 
+	for object in attached_objects: object.lock_rotation = false
+	queue_free()
+
+func _on_tree_entered() -> void: tree_exited.connect(card.object_deleted)
+
+func _on_body_entered(body: Node) -> void: 
+	
+	var this_pin_joint = PinJoint2D.new()
+	add_child(this_pin_joint)
+	this_pin_joint.node_a = self.get_path()
+	this_pin_joint.node_b = body.get_path()
+	if body is RigidBody2D: call_deferred(\"cant_rotate\", body)
+
+func cant_rotate(body):
+	body.lock_rotation = true
+	attached_objects.append(body)
+	body.tree_exited.connect(attached_object_deleted.bind(body))
+
+func attached_object_deleted(object): attached_objects.erase(object) 
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2hug"]
+radius = 62.0081
+
+[node name="RigidBody2D" type="RigidBody2D"]
+can_sleep = false
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 5
+script = SubResource("GDScript_h2hug")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 14)
+texture = ExtResource("1_h2hug")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -64.0
+offset_top = -63.0
+offset_right = 67.0
+offset_bottom = 67.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h2hug")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
