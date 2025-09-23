@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://udjoyep36q3w"]
+[gd_scene load_steps=16 format=3 uid="uid://udjoyep36q3w"]
 
 [ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_tjgfl"]
 [ext_resource type="PackedScene" uid="uid://b3rut2nltkk41" path="res://Scenes/Objects/toy_car.tscn" id="2_q2mrg"]
@@ -12,8 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ccbax6ywlm014" path="res://Scenes/Objects/bed.tscn" id="9_fkc1a"]
 [ext_resource type="Script" uid="uid://3tx0n7wd86y3" path="res://Scenes/levels/end_area.gd" id="10_35bfj"]
 [ext_resource type="AudioStream" uid="uid://vy4hn6swqokv" path="res://Assets/Tom and Jerry sound effect 20+.mp3" id="11_l8nyl"]
-[ext_resource type="Script" uid="uid://k413sic4lesc" path="res://Scripts/reset.gd" id="11_lnq35"]
-[ext_resource type="Texture2D" uid="uid://bf1sahjdwc8n5" path="res://Assets/restart.png" id="12_fkc1a"]
+[ext_resource type="PackedScene" uid="uid://dovtq8sh51gk" path="res://Scenes/UI/reset.tscn" id="13_lnq35"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dspjw"]
 size = Vector2(185, 45)
@@ -25,10 +24,10 @@ size = Vector2(883.5, 660)
 
 [node name="Room" parent="." instance=ExtResource("1_tjgfl")]
 
-[node name="CollisionShape2D2" parent="Room" index="3"]
+[node name="CollisionShape2D2" parent="Room" index="2"]
 position = Vector2(-2285, -722.5)
 
-[node name="CollisionShape2D3" parent="Room" index="4"]
+[node name="CollisionShape2D3" parent="Room" index="3"]
 position = Vector2(-2283, 370)
 
 [node name="Skatebboard" parent="." instance=ExtResource("2_u4prk")]
@@ -82,25 +81,10 @@ debug_color = Color(0.13318786, 0.6467438, 0, 0.41960785)
 
 [node name="Bed" parent="." instance=ExtResource("9_fkc1a")]
 
-[node name="reset" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("11_lnq35")
-
-[node name="Button" type="Button" parent="reset"]
-layout_mode = 1
-offset_left = -1774.0
-offset_top = -1061.0
-offset_right = -1588.0
-offset_bottom = -925.0
-icon = ExtResource("12_fkc1a")
+[node name="reset" parent="." instance=ExtResource("13_lnq35")]
+self_scene = null
 
 [connection signal="body_entered" from="EndArea" to="EndArea" method="_on_body_entered"]
-[connection signal="button_down" from="reset/Button" to="reset" method="_on_button_button_down"]
 
 [editable path="Room"]
 [editable path="Skatebboard"]

@@ -18,13 +18,10 @@ size = Vector2(5891, 1265)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
 size = Vector2(1310, 1470)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="Room" type="StaticBody2D"]
 
 [node name="Room" type="Sprite2D" parent="."]
 texture = ExtResource("1_nn86p")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.32, 0.32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(72, 1427)
@@ -46,6 +43,9 @@ shape = SubResource("RectangleShape2D_q6r6c")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
 position = Vector2(2374, -153)
 shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.485, 0.485)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 top_level = true

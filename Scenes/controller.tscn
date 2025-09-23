@@ -9,28 +9,14 @@ bounce = 0.4
 [sub_resource type="GDScript" id="GDScript_jf33l"]
 script/source = "extends RigidBody2D
 
-var ceiling_fan
-var fan_area 
-@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
-@onready var sprite_2d: Sprite2D = $Sprite2D
 
-func _ready() -> void:
-	ceiling_fan=get_parent().get_node(\"CeilingFan\")
-	if ceiling_fan.is_inside_tree():
-		
-		fan_area = ceiling_fan.get_node(\"Area2D\")
+
 		
   
 
 		
 		
 	
-func _process(delta: float) -> void:
-	if fan_area and fan_area.get_overlapping_bodies().has(self): 
-		sprite_2d.visible = false
-		cpu_particles_2d.emitting = true
-		
-		get_tree().change_scene_to_file(\"res://Scenes/levels/level_2.tscn\")
 "
 
 [node name="Controller" type="RigidBody2D"]
