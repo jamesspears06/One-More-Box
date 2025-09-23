@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://udjoyep36q3w"]
+[gd_scene load_steps=17 format=3 uid="uid://udjoyep36q3w"]
 
 [ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_tjgfl"]
-[ext_resource type="Texture2D" uid="uid://d4iox02il6gxo" path="res://Assets/level2room.png" id="2_l8nyl"]
 [ext_resource type="PackedScene" uid="uid://b3rut2nltkk41" path="res://Scenes/Objects/toy_car.tscn" id="2_q2mrg"]
 [ext_resource type="PackedScene" uid="uid://b606wi2jv6jiq" path="res://Scenes/Objects/skateboard.tscn" id="2_u4prk"]
 [ext_resource type="PackedScene" uid="uid://ccgwb5abehb54" path="res://Scenes/Objects/wardrobe.tscn" id="3_mb2fk"]
@@ -25,9 +24,6 @@ size = Vector2(883.5, 660)
 [node name="level2" type="Node2D"]
 
 [node name="Room" parent="." instance=ExtResource("1_tjgfl")]
-
-[node name="Room" parent="Room" index="0"]
-texture = ExtResource("2_l8nyl")
 
 [node name="CollisionShape2D2" parent="Room" index="3"]
 position = Vector2(-2285, -722.5)
@@ -58,8 +54,8 @@ position = Vector2(47, -395)
 position = Vector2(-188, -401)
 rotation = -3.1415927
 
-[node name="Sprite2D" parent="." instance=ExtResource("7_dspjw")]
-position = Vector2(-601, 848)
+[node name="Rock" parent="." instance=ExtResource("7_dspjw")]
+position = Vector2(-360, 871.00006)
 object = ExtResource("8_fh68y")
 
 [node name="Desk" parent="." instance=ExtResource("6_dspjw")]
