@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2pwhs36xu5wj"]
+
+[ext_resource type="Texture2D" uid="uid://djoleko2pw1rv" path="res://Assets/skateboard wheel.png" id="1_2cis5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bekwf"]
+radius = 14.035668
+
+[node name="SkateWheel" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_2cis5")
+region_enabled = true
+region_rect = Rect2(242, 241, 29, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bekwf")

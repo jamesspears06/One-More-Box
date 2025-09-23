@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceylhfc7rhy1e"]
+
+[ext_resource type="Texture2D" uid="uid://3lyrgllldymb" path="res://Assets/books.png" id="1_0away"]
+
+[node name="Books" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0away")
+region_enabled = true
+region_rect = Rect2(1570.4006, 623.1019, 184.44824, 103.56195)
+region_filter_clip_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-88, 36, -16, -5, 12, -21, 16, -50, 47, -50, 49, -34, 69, -34, 89, -22, 93, 51, -5, 50, -80, 53)

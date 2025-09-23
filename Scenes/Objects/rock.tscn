@@ -13,6 +13,8 @@ func _on_tree_entered() -> void: tree_exited.connect(card.object_deleted)
 "
 
 [node name="Rock" type="RigidBody2D"]
+mass = 5.0
+gravity_scale = 3.0
 can_sleep = false
 contact_monitor = true
 max_contacts_reported = 1

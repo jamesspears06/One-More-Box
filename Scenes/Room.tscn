@@ -1,16 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://867cnwp2opxe"]
 
-[ext_resource type="Texture2D" uid="uid://v3yg74vv7hx3" path="res://Sprites/room.png" id="1_gw2vq"]
+[ext_resource type="Texture2D" uid="uid://d4iox02il6gxo" path="res://Assets/level2room.png" id="1_nn86p"]
 [ext_resource type="Texture2D" uid="uid://bjwhmehqjjojq" path="res://Sprites/window_panel.png" id="2_nn86p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(5876, 1706)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
-size = Vector2(1186, 474)
+size = Vector2(1180, 327)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(1153, 567)
+size = Vector2(1122, 410)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
 size = Vector2(5891, 1265)
@@ -21,9 +21,10 @@ size = Vector2(1310, 1470)
 [node name="StaticBody2D" type="StaticBody2D"]
 
 [node name="Room" type="Sprite2D" parent="."]
-texture = ExtResource("1_gw2vq")
+texture = ExtResource("1_nn86p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.32, 0.32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(72, 1427)

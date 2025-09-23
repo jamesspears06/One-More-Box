@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccgwb5abehb54"]
+
+[ext_resource type="Texture2D" uid="uid://bci4a46yv0tua" path="res://Assets/wardobe.png" id="1_t0iu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rl1d"]
+size = Vector2(94.19998, 176.19998)
+
+[node name="Wardrobe" type="StaticBody2D"]
+
+[node name="Wardobe" type="Sprite2D" parent="."]
+texture = ExtResource("1_t0iu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-339.5, 80.50003)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_3rl1d")
