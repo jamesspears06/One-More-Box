@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="One More Box"
+<<<<<<< Updated upstream
 run/main_scene="uid://udjoyep36q3w"
 config/features=PackedStringArray("4.5", "Forward Plus")
+=======
+run/main_scene="res://Scenes/node_2d.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
+>>>>>>> Stashed changes
 config/icon="res://Sprites/icon.svg"
 
 [display]
