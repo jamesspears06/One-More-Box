@@ -41,7 +41,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0a34p"]
-radius = 57.142868
+radius = 17.316
 height = 288.312
 
 [node name="Sprite2D" type="Sprite2D"]
