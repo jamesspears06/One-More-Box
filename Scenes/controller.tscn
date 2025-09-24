@@ -1,24 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl8u5r7w24jug"]
+[gd_scene load_steps=5 format=3 uid="uid://bl8u5r7w24jug"]
 
 [ext_resource type="Texture2D" uid="uid://bql8578uh3a2n" path="res://Sprites/controller.png" id="1_jldtq"]
 [ext_resource type="Texture2D" uid="uid://cvf4187roolon" path="res://Sprites/controller_shard.png" id="2_jf33l"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jf33l"]
+bounce = 0.4
+
 [sub_resource type="GDScript" id="GDScript_jf33l"]
 script/source = "extends RigidBody2D
 
-@onready var ceiling_fan = get_parent().get_node(\"CeilingFan\")
-@onready var fan_area = ceiling_fan.get_node(\"Area2D\")
-@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
-@onready var sprite_2d: Sprite2D = $Sprite2D
 
 
-func _process(delta: float) -> void:
-	if fan_area.get_overlapping_bodies().has(self): 
-		sprite_2d.visible = false
-		cpu_particles_2d.emitting = true
+		
+  
+
+		
+		
+	
 "
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Controller" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_jf33l")
 can_sleep = false
 script = SubResource("GDScript_jf33l")
 

@@ -1,0 +1,90 @@
+[gd_scene load_steps=16 format=3 uid="uid://udjoyep36q3w"]
+
+[ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_tjgfl"]
+[ext_resource type="PackedScene" uid="uid://b3rut2nltkk41" path="res://Scenes/Objects/toy_car.tscn" id="2_q2mrg"]
+[ext_resource type="PackedScene" uid="uid://b606wi2jv6jiq" path="res://Scenes/Objects/skateboard.tscn" id="2_u4prk"]
+[ext_resource type="PackedScene" uid="uid://ccgwb5abehb54" path="res://Scenes/Objects/wardrobe.tscn" id="3_mb2fk"]
+[ext_resource type="PackedScene" uid="uid://ceylhfc7rhy1e" path="res://Scenes/Objects/books.tscn" id="5_8j7el"]
+[ext_resource type="PackedScene" uid="uid://2anyuav50bfs" path="res://Scenes/Objects/desk.tscn" id="6_dspjw"]
+[ext_resource type="PackedScene" uid="uid://c0yv0x0sudyr5" path="res://Scenes/card.tscn" id="7_dspjw"]
+[ext_resource type="PackedScene" uid="uid://bl8u5r7w24jug" path="res://Scenes/controller.tscn" id="7_fh68y"]
+[ext_resource type="PackedScene" uid="uid://dktfhjiehqb0e" path="res://Scenes/Objects/rock.tscn" id="8_fh68y"]
+[ext_resource type="PackedScene" uid="uid://ccbax6ywlm014" path="res://Scenes/Objects/bed.tscn" id="9_fkc1a"]
+[ext_resource type="Script" uid="uid://3tx0n7wd86y3" path="res://Scenes/levels/end_area.gd" id="10_35bfj"]
+[ext_resource type="AudioStream" uid="uid://vy4hn6swqokv" path="res://Assets/Tom and Jerry sound effect 20+.mp3" id="11_l8nyl"]
+[ext_resource type="PackedScene" uid="uid://dovtq8sh51gk" path="res://Scenes/UI/reset.tscn" id="13_lnq35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dspjw"]
+size = Vector2(185, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fh68y"]
+size = Vector2(883.5, 660)
+
+[node name="level2" type="Node2D"]
+
+[node name="Room" parent="." instance=ExtResource("1_tjgfl")]
+
+[node name="CollisionShape2D2" parent="Room" index="2"]
+position = Vector2(-2285, -722.5)
+
+[node name="CollisionShape2D3" parent="Room" index="3"]
+position = Vector2(-2283, 370)
+
+[node name="Skatebboard" parent="." instance=ExtResource("2_u4prk")]
+position = Vector2(-902, 487)
+
+[node name="Sprite2D" parent="Skatebboard" index="0"]
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionPolygon2D" parent="Skatebboard" index="1"]
+scale = Vector2(1.5, 1.5)
+
+[node name="Wardrobe" parent="." instance=ExtResource("3_mb2fk")]
+position = Vector2(285, 8)
+
+[node name="ToyCar" parent="." instance=ExtResource("2_q2mrg")]
+position = Vector2(10.9999695, -501)
+gravity_scale = 1.2
+
+[node name="Books" parent="." instance=ExtResource("5_8j7el")]
+position = Vector2(47, -395)
+
+[node name="Controller" parent="." instance=ExtResource("7_fh68y")]
+position = Vector2(-188, -401)
+rotation = -3.1415927
+
+[node name="Rock" parent="." instance=ExtResource("7_dspjw")]
+position = Vector2(-360, 871.00006)
+object = ExtResource("8_fh68y")
+
+[node name="Desk" parent="." instance=ExtResource("6_dspjw")]
+position = Vector2(-723, 64)
+
+[node name="DeskArea" type="StaticBody2D" parent="."]
+position = Vector2(321, 118)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeskArea"]
+position = Vector2(-1057.5, 15.5)
+shape = SubResource("RectangleShape2D_dspjw")
+
+[node name="EndArea" type="Area2D" parent="."]
+position = Vector2(-2328, -206)
+script = ExtResource("10_35bfj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="EndArea"]
+stream = ExtResource("11_l8nyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea"]
+position = Vector2(167.75, 20)
+shape = SubResource("RectangleShape2D_fh68y")
+debug_color = Color(0.13318786, 0.6467438, 0, 0.41960785)
+
+[node name="Bed" parent="." instance=ExtResource("9_fkc1a")]
+
+[node name="reset" parent="." instance=ExtResource("13_lnq35")]
+self_scene = null
+
+[connection signal="body_entered" from="EndArea" to="EndArea" method="_on_body_entered"]
+
+[editable path="Room"]
+[editable path="Skatebboard"]

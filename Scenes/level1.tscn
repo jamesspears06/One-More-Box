@@ -1,0 +1,54 @@
+[gd_scene load_steps=13 format=3 uid="uid://c56xp8k4apjrw"]
+
+[ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_bs12r"]
+[ext_resource type="Script" uid="uid://c0pobc8ndnhwy" path="res://Scripts/level_1.gd" id="1_rqhku"]
+[ext_resource type="PackedScene" uid="uid://bl8u5r7w24jug" path="res://Scenes/controller.tscn" id="2_rqhku"]
+[ext_resource type="PackedScene" uid="uid://c0yv0x0sudyr5" path="res://Scenes/card.tscn" id="3_cpkqv"]
+[ext_resource type="PackedScene" uid="uid://dktfhjiehqb0e" path="res://Scenes/Objects/rock.tscn" id="4_d1mwp"]
+[ext_resource type="PackedScene" uid="uid://ywpq0o0uetah" path="res://Scenes/Objects/magnet.tscn" id="5_u1b78"]
+[ext_resource type="Texture2D" uid="uid://csj4yx6dp6yvo" path="res://Sprites/magnet.png" id="6_bdr3p"]
+[ext_resource type="PackedScene" uid="uid://nqg1cls1i4o5" path="res://Scenes/Objects/blutac.tscn" id="7_wwu6c"]
+[ext_resource type="Texture2D" uid="uid://b255sj810ywtq" path="res://Sprites/blutac.png" id="8_yymuf"]
+[ext_resource type="PackedScene" uid="uid://b58ynxf2njtdr" path="res://Scenes/ceiling_fan.tscn" id="9_esggg"]
+[ext_resource type="PackedScene" uid="uid://b3rut2nltkk41" path="res://Scenes/Objects/toy_car.tscn" id="10_nolpu"]
+[ext_resource type="PackedScene" uid="uid://dovtq8sh51gk" path="res://Scenes/UI/reset.tscn" id="12_cpkqv"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_rqhku")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_bs12r")]
+
+[node name="Controller" parent="." instance=ExtResource("2_rqhku")]
+position = Vector2(-1, 514)
+
+[node name="Rock" parent="." instance=ExtResource("3_cpkqv")]
+position = Vector2(858, 837)
+object = ExtResource("4_d1mwp")
+
+[node name="Magnet" parent="." instance=ExtResource("3_cpkqv")]
+position = Vector2(-372, 866.00006)
+object = ExtResource("5_u1b78")
+
+[node name="Sprite2D" type="Sprite2D" parent="Magnet"]
+texture = ExtResource("6_bdr3p")
+
+[node name="BlueTac" parent="." instance=ExtResource("3_cpkqv")]
+position = Vector2(11, 878.00006)
+object = ExtResource("7_wwu6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="BlueTac"]
+texture = ExtResource("8_yymuf")
+
+[node name="CeilingFan" parent="." instance=ExtResource("9_esggg")]
+position = Vector2(1076, -682)
+
+[node name="Toycar" parent="." instance=ExtResource("3_cpkqv")]
+position = Vector2(400.00003, 877.00006)
+object = ExtResource("10_nolpu")
+
+[node name="reset" parent="." instance=ExtResource("12_cpkqv")]
+
+[connection signal="body_entered" from="CeilingFan/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="Controller"]
+[editable path="CeilingFan"]

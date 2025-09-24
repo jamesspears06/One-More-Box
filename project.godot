@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="One More Box"
-run/main_scene="res://Scenes/node_2d.tscn"
+run/main_scene="uid://udjoyep36q3w"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
 [display]
 
-window/size/viewport_width=3640
-window/size/viewport_height=2160
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

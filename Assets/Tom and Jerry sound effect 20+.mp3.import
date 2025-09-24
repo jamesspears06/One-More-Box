@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vy4hn6swqokv"
+path="res://.godot/imported/Tom and Jerry sound effect 20+.mp3-6ca10a332395757a1e6903789c5a5f80.mp3str"
+
+[deps]
+
+source_file="res://Assets/Tom and Jerry sound effect 20+.mp3"
+dest_files=["res://.godot/imported/Tom and Jerry sound effect 20+.mp3-6ca10a332395757a1e6903789c5a5f80.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
