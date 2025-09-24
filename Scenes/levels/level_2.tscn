@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://udjoyep36q3w"]
+[gd_scene load_steps=19 format=3 uid="uid://udjoyep36q3w"]
 
 [ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_tjgfl"]
 [ext_resource type="PackedScene" uid="uid://b3rut2nltkk41" path="res://Scenes/Objects/toy_car.tscn" id="2_q2mrg"]
@@ -14,7 +14,8 @@
 [ext_resource type="Script" uid="uid://3tx0n7wd86y3" path="res://Scenes/levels/end_area.gd" id="10_35bfj"]
 [ext_resource type="AudioStream" uid="uid://vy4hn6swqokv" path="res://Assets/Tom and Jerry sound effect 20+.mp3" id="11_l8nyl"]
 [ext_resource type="PackedScene" uid="uid://dovtq8sh51gk" path="res://Scenes/UI/reset.tscn" id="13_lnq35"]
-[ext_resource type="Texture2D" uid="uid://k4hgjg7i02tu" path="res://Assets/fork.png" id="15_l8nyl"]
+[ext_resource type="Texture2D" uid="uid://coosdug166t4o" path="res://Sprites/Car.png" id="15_l8nyl"]
+[ext_resource type="PackedScene" uid="uid://53co7fn3klqy" path="res://Scenes/Objects/trampoline.tscn" id="16_5i3kd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dspjw"]
 size = Vector2(185, 45)
@@ -26,10 +27,10 @@ size = Vector2(883.5, 660)
 
 [node name="Room" parent="." instance=ExtResource("1_tjgfl")]
 
-[node name="CollisionShape2D2" parent="Room" index="2"]
+[node name="CollisionShape2D2" parent="Room" index="3"]
 position = Vector2(-2285, -722.5)
 
-[node name="CollisionShape2D3" parent="Room" index="3"]
+[node name="CollisionShape2D3" parent="Room" index="4"]
 position = Vector2(-2283, 370)
 
 [node name="Skatebboard" parent="." instance=ExtResource("2_u4prk")]
@@ -77,6 +78,7 @@ script = ExtResource("10_35bfj")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="EndArea"]
 position = Vector2(1848, -66)
 stream = ExtResource("11_l8nyl")
+volume_db = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea"]
 position = Vector2(167.75, 20)
@@ -87,8 +89,13 @@ debug_color = Color(0.13318786, 0.6467438, 0, 0.41960785)
 
 [node name="reset" parent="." instance=ExtResource("13_lnq35")]
 
-[node name="Sprite2D" parent="." instance=ExtResource("7_dspjw")]
+[node name="Toycar" parent="." instance=ExtResource("7_dspjw")]
+position = Vector2(24, 864)
+object = ExtResource("2_q2mrg")
 icon = ExtResource("15_l8nyl")
+
+[node name="Trampoline" parent="." instance=ExtResource("16_5i3kd")]
+position = Vector2(-384, -72)
 
 [connection signal="body_entered" from="EndArea" to="EndArea" method="_on_body_entered"]
 

@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=3 uid="uid://bunf7hxxven2r"]
+
+[ext_resource type="Texture2D" uid="uid://bp0i3fbe8e5v" path="res://Assets/one_more_box__ui.png" id="1_1ut58"]
+[ext_resource type="Script" uid="uid://dladojul2080w" path="res://Scripts/hint.gd" id="1_62ml0"]
+[ext_resource type="Texture2D" uid="uid://bfckk1lpcts6q" path="res://Assets/one_more_box_button.png" id="2_62ml0"]
+[ext_resource type="FontFile" uid="uid://kyjbfc73iwys" path="res://Assets/BM-HANNA.ttf" id="3_cng57"]
+
+[node name="Hint" type="Control"]
+custom_minimum_size = Vector2(3840, 2160)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62ml0")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2048.0
+offset_top = -1048.0
+offset_right = 2328.0
+offset_bottom = 1704.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.29803923, 0.29803923, 0.29803923, 0.68235296)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1ut58")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 92.0
+offset_right = 952.0
+offset_bottom = 526.0
+color = Color(0.16862746, 0.23921569, 0, 1)
+
+[node name="HintTitle" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0020833334
+anchor_top = 0.33703703
+anchor_right = 1.0020833
+anchor_bottom = 0.39166668
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_cng57")
+theme_override_font_sizes/normal_font_size = 209
+text = "Hint"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50625
+anchor_top = 0.7740741
+anchor_right = 0.50625
+anchor_bottom = 0.7740741
+offset_left = -512.0001
+offset_top = -1024.0
+offset_right = 511.99988
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("2_62ml0")
+texture_pressed = ExtResource("2_62ml0")
+texture_hover = ExtResource("2_62ml0")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1644.0
+offset_top = 1286.0
+offset_right = 2257.0
+offset_bottom = 1430.0
+mouse_filter = 2
+color = Color(0.3647059, 0.44313726, 0.9098039, 1)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42083332
+anchor_top = 0.5777778
+anchor_right = 0.59583336
+anchor_bottom = 0.67777777
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_cng57")
+theme_override_font_sizes/normal_font_size = 58
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -38,7 +38,7 @@ size = Vector2(1310, 1470)
 
 [node name="Room" type="StaticBody2D"]
 
-[node name="Control" type="Control" parent="."]
+[node name="Background" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +51,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="ColorRect" parent="Control"]
+[node name="TextureRect" type="ColorRect" parent="Background"]
 material = SubResource("ShaderMaterial_a2si3")
 layout_mode = 1
 anchors_preset = 15

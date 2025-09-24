@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ku81r8qfijm5"]
+
+[ext_resource type="Script" uid="uid://btaorgpcfg4er" path="res://Scripts/hint_icon.gd" id="1_78cu8"]
+[ext_resource type="Texture2D" uid="uid://b7d8mkxiqwg3v" path="res://Assets/hint.png" id="1_j483w"]
+
+[node name="HintIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1920.0
+offset_top = -1080.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_78cu8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 3570.0
+offset_top = 20.0
+offset_right = 3834.0
+offset_bottom = 284.0
+grow_horizontal = 0
+icon = ExtResource("1_j483w")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

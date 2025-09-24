@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7rvtl5cd348y"]
+
+[ext_resource type="Texture2D" uid="uid://c8feofvjmvfxb" path="res://Sprites/Wheel.png" id="1_u61x7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vmmmb"]
+radius = 65.96969
+
+[node name="Shredder" type="RigidBody2D"]
+
+[node name="ShredderIcon" type="Sprite2D" parent="."]
+texture = ExtResource("1_u61x7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vmmmb")

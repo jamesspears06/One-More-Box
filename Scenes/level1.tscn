@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c56xp8k4apjrw"]
+[gd_scene load_steps=17 format=3 uid="uid://c56xp8k4apjrw"]
 
 [ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_bs12r"]
 [ext_resource type="Script" uid="uid://c0pobc8ndnhwy" path="res://Scripts/level_1.gd" id="1_rqhku"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://b3rut2nltkk41" path="res://Scenes/Objects/toy_car.tscn" id="10_nolpu"]
 [ext_resource type="PackedScene" uid="uid://dovtq8sh51gk" path="res://Scenes/UI/reset.tscn" id="12_cpkqv"]
 [ext_resource type="Texture2D" uid="uid://coosdug166t4o" path="res://Sprites/Car.png" id="13_bdr3p"]
+[ext_resource type="PackedScene" uid="uid://bunf7hxxven2r" path="res://Scenes/UI/hint.tscn" id="15_wwu6c"]
+[ext_resource type="PackedScene" uid="uid://ku81r8qfijm5" path="res://Scenes/hint_icon.tscn" id="16_wwu6c"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_rqhku")
@@ -47,6 +49,17 @@ object = ExtResource("10_nolpu")
 icon = ExtResource("13_bdr3p")
 
 [node name="reset" parent="." instance=ExtResource("12_cpkqv")]
+
+[node name="Hint" parent="." instance=ExtResource("15_wwu6c")]
+visible = false
+z_index = 4
+offset_left = -1923.0
+offset_top = -1278.0
+offset_right = 1917.0
+offset_bottom = 882.0
+hint_text = "That fan is spinning pretty fast don't you think?"
+
+[node name="HintIcon" parent="." instance=ExtResource("16_wwu6c")]
 
 [connection signal="body_entered" from="CeilingFan/Area2D" to="." method="_on_area_2d_body_entered"]
 
