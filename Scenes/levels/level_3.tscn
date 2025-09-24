@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://4ue277nkte0r"]
+[gd_scene load_steps=5 format=3 uid="uid://4ue277nkte0r"]
 
 [ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_4rusa"]
+[ext_resource type="PackedScene" uid="uid://c0yv0x0sudyr5" path="res://Scenes/card.tscn" id="2_n12qs"]
+[ext_resource type="PackedScene" uid="uid://bv6avo3gvny3" path="res://Scenes/Objects/fork.tscn" id="3_f852d"]
+[ext_resource type="Texture2D" uid="uid://k4hgjg7i02tu" path="res://Assets/fork.png" id="4_1dosi"]
 
 [node name="Level3" type="Node2D"]
 
 [node name="Room" parent="." instance=ExtResource("1_4rusa")]
+
+[node name="Card" parent="." instance=ExtResource("2_n12qs")]
+position = Vector2(-368, 872.00006)
+object = ExtResource("3_f852d")
+icon = ExtResource("4_1dosi")
+
+[node name="Card2" parent="." instance=ExtResource("2_n12qs")]
+position = Vector2(14, 872)
+
+[node name="Card3" parent="." instance=ExtResource("2_n12qs")]
+position = Vector2(408, 872)

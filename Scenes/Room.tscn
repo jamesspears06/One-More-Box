@@ -1,7 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://867cnwp2opxe"]
+[gd_scene load_steps=10 format=3 uid="uid://867cnwp2opxe"]
 
 [ext_resource type="Texture2D" uid="uid://d4iox02il6gxo" path="res://Assets/level2room.png" id="1_nn86p"]
 [ext_resource type="Texture2D" uid="uid://bjwhmehqjjojq" path="res://Sprites/window_panel.png" id="2_nn86p"]
+[ext_resource type="Shader" uid="uid://dq8yxxw0nrjkm" path="res://shaders/Room.gdshader" id="3_uj218"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2si3"]
+shader = ExtResource("3_uj218")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = 1.0
+shader_parameter/spin_speed = 6.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.9254902, 0.7647059, 0.043137256, 1)
+shader_parameter/colour_2 = Color(0.06666667, 0.10980392, 0.13333334, 1)
+shader_parameter/colour_3 = Color(0, 0, 0, 0)
+shader_parameter/contrast = 1.5
+shader_parameter/lighting = 0.0
+shader_parameter/spin_amount = 0.1
+shader_parameter/pixel_filter = 756.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(5876, 1706)
@@ -19,6 +37,29 @@ size = Vector2(5891, 1265)
 size = Vector2(1310, 1470)
 
 [node name="Room" type="StaticBody2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2110.0
+offset_top = -1151.0
+offset_right = 2099.0
+offset_bottom = 1167.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_a2si3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Room" type="Sprite2D" parent="."]
 texture = ExtResource("1_nn86p")

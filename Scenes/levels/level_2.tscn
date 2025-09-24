@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://udjoyep36q3w"]
+[gd_scene load_steps=18 format=3 uid="uid://udjoyep36q3w"]
 
 [ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_tjgfl"]
 [ext_resource type="PackedScene" uid="uid://b3rut2nltkk41" path="res://Scenes/Objects/toy_car.tscn" id="2_q2mrg"]
@@ -9,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://c0yv0x0sudyr5" path="res://Scenes/card.tscn" id="7_dspjw"]
 [ext_resource type="PackedScene" uid="uid://bl8u5r7w24jug" path="res://Scenes/controller.tscn" id="7_fh68y"]
 [ext_resource type="PackedScene" uid="uid://dktfhjiehqb0e" path="res://Scenes/Objects/rock.tscn" id="8_fh68y"]
+[ext_resource type="Texture2D" uid="uid://cmpdcyocwv2pg" path="res://Sprites/rock.png" id="9_35bfj"]
 [ext_resource type="PackedScene" uid="uid://ccbax6ywlm014" path="res://Scenes/Objects/bed.tscn" id="9_fkc1a"]
 [ext_resource type="Script" uid="uid://3tx0n7wd86y3" path="res://Scenes/levels/end_area.gd" id="10_35bfj"]
 [ext_resource type="AudioStream" uid="uid://vy4hn6swqokv" path="res://Assets/Tom and Jerry sound effect 20+.mp3" id="11_l8nyl"]
 [ext_resource type="PackedScene" uid="uid://dovtq8sh51gk" path="res://Scenes/UI/reset.tscn" id="13_lnq35"]
+[ext_resource type="Texture2D" uid="uid://k4hgjg7i02tu" path="res://Assets/fork.png" id="15_l8nyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dspjw"]
 size = Vector2(185, 45)
@@ -56,6 +58,7 @@ rotation = -3.1415927
 [node name="Rock" parent="." instance=ExtResource("7_dspjw")]
 position = Vector2(-360, 871.00006)
 object = ExtResource("8_fh68y")
+icon = ExtResource("9_35bfj")
 
 [node name="Desk" parent="." instance=ExtResource("6_dspjw")]
 position = Vector2(-723, 64)
@@ -72,6 +75,7 @@ position = Vector2(-2328, -206)
 script = ExtResource("10_35bfj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="EndArea"]
+position = Vector2(1848, -66)
 stream = ExtResource("11_l8nyl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea"]
@@ -82,7 +86,9 @@ debug_color = Color(0.13318786, 0.6467438, 0, 0.41960785)
 [node name="Bed" parent="." instance=ExtResource("9_fkc1a")]
 
 [node name="reset" parent="." instance=ExtResource("13_lnq35")]
-self_scene = null
+
+[node name="Sprite2D" parent="." instance=ExtResource("7_dspjw")]
+icon = ExtResource("15_l8nyl")
 
 [connection signal="body_entered" from="EndArea" to="EndArea" method="_on_body_entered"]
 

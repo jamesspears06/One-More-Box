@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv6avo3gvny3"]
+
+[ext_resource type="Texture2D" uid="uid://k4hgjg7i02tu" path="res://Assets/fork.png" id="1_mex1x"]
+
+[node name="Fork" type="RigidBody2D"]
+
+[node name="ForkImage" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_mex1x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-504, 472, -424, 504, -344, 448, -176, 264, -16, 112, 0, 64, 152, -104, 216, -128, 320, -136, 488, -328, 368, -488, 152, -328, 120, -168, -72, 0, -128, 32, -480, 376)

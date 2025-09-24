@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0yv0x0sudyr5"]
+[gd_scene load_steps=5 format=3 uid="uid://c0yv0x0sudyr5"]
 
 [ext_resource type="Texture2D" uid="uid://b1aye3j1nclud" path="res://Sprites/card.png" id="1_0qqmn"]
+[ext_resource type="Texture2D" uid="uid://k4hgjg7i02tu" path="res://Assets/fork.png" id="2_wf8id"]
 
 [sub_resource type="GDScript" id="GDScript_wf8id"]
 script/source = "extends Sprite2D
@@ -8,12 +9,17 @@ script/source = "extends Sprite2D
 @export var object: PackedScene 
 @onready var is_clicked = false
 @onready var this_object
+@onready var sprite: TextureRect = $TextureRect
 
+@export var icon:Texture2D
 const blutac = preload(\"res://Scenes/Objects/blutac.tscn\")
 
 var starting_position
 
-func _ready() -> void: starting_position = position
+
+func _ready() -> void: 
+	starting_position = position
+	sprite.texture=icon
 
 func _process(delta: float) -> void: if is_clicked: position = get_global_mouse_position()
 
@@ -41,11 +47,14 @@ func object_deleted(): visible = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brehn"]
 size = Vector2(304, 545)
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Card" type="Sprite2D"]
 top_level = true
 scale = Vector2(0.716, 0.716)
 texture = ExtResource("1_0qqmn")
+region_enabled = true
+region_rect = Rect2(348, 54, 328, 565)
 script = SubResource("GDScript_wf8id")
+icon = ExtResource("2_wf8id")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -59,6 +68,23 @@ offset_bottom = 247.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-3, -24.5)
 shape = SubResource("RectangleShape2D_brehn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.07822
+offset_top = -455.68436
+offset_right = -29.921783
+offset_bottom = -109.31564
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
