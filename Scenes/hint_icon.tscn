@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_78cu8")
 
 [node name="Button" type="Button" parent="."]
+self_modulate = Color(18.892157, 18.892157, 0, 1)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -27,5 +28,9 @@ offset_right = 3834.0
 offset_bottom = 284.0
 grow_horizontal = 0
 icon = ExtResource("1_j483w")
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(126, 124)
+texture = ExtResource("1_j483w")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

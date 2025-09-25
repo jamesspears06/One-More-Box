@@ -1,12 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv6avo3gvny3"]
+[gd_scene load_steps=5 format=3 uid="uid://bv6avo3gvny3"]
 
+[ext_resource type="Script" uid="uid://b4vuepy5vpgvp" path="res://Scripts/Classes/Item.gd" id="1_cwhag"]
 [ext_resource type="Texture2D" uid="uid://k4hgjg7i02tu" path="res://Assets/fork.png" id="1_mex1x"]
+[ext_resource type="Script" uid="uid://oalanx3khnm5" path="res://Scripts/fork_controller_area.gd" id="3_ruv1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwhag"]
+size = Vector2(216, 72)
 
 [node name="Fork" type="RigidBody2D"]
+script = ExtResource("1_cwhag")
+metadata/_custom_type_script = "uid://b4vuepy5vpgvp"
 
 [node name="ForkImage" type="Sprite2D" parent="."]
 texture_filter = 1
+rotation = 0.7923795
+scale = Vector2(0.145, 0.145)
 texture = ExtResource("1_mex1x")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 0.7923795
+scale = Vector2(0.145, 0.145)
 polygon = PackedVector2Array(-504, 472, -424, 504, -344, 448, -176, 264, -16, 112, 0, 64, 152, -104, 216, -128, 320, -136, 488, -328, 368, -488, 152, -328, 120, -168, -72, 0, -128, 32, -480, 376)
+
+[node name="ForkControllerArea" type="Area2D" parent="."]
+script = ExtResource("3_ruv1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForkControllerArea"]
+position = Vector2(-4, 4)
+shape = SubResource("RectangleShape2D_cwhag")
+
+[connection signal="body_entered" from="ForkControllerArea" to="ForkControllerArea" method="_on_body_entered"]

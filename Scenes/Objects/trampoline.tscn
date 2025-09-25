@@ -16,4 +16,12 @@ texture = ExtResource("1_rmj83")
 position = Vector2(-4, -59)
 shape = SubResource("RectangleShape2D_lqu4r")
 
+[node name="Button" type="Button" parent="."]
+offset_left = -112.0
+offset_top = -80.0
+offset_right = 88.0
+offset_bottom = 64.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

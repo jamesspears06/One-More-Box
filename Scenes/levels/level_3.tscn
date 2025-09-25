@@ -4,16 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://c0yv0x0sudyr5" path="res://Scenes/card.tscn" id="2_n12qs"]
 [ext_resource type="PackedScene" uid="uid://bv6avo3gvny3" path="res://Scenes/Objects/fork.tscn" id="3_f852d"]
 [ext_resource type="PackedScene" uid="uid://ywpq0o0uetah" path="res://Scenes/Objects/magnet.tscn" id="3_xrn22"]
-[ext_resource type="Texture2D" uid="uid://k4hgjg7i02tu" path="res://Assets/fork.png" id="4_1dosi"]
-[ext_resource type="Texture2D" uid="uid://csj4yx6dp6yvo" path="res://Sprites/magnet.png" id="4_1qnut"]
 [ext_resource type="PackedScene" uid="uid://dktfhjiehqb0e" path="res://Scenes/Objects/rock.tscn" id="4_hip6n"]
-[ext_resource type="Texture2D" uid="uid://cmpdcyocwv2pg" path="res://Sprites/rock.png" id="5_8q1ft"]
 [ext_resource type="PackedScene" uid="uid://ccbax6ywlm014" path="res://Scenes/Objects/bed.tscn" id="5_x6hu1"]
 [ext_resource type="PackedScene" uid="uid://ccgwb5abehb54" path="res://Scenes/Objects/wardrobe.tscn" id="6_863cj"]
 [ext_resource type="PackedScene" uid="uid://bl8u5r7w24jug" path="res://Scenes/controller.tscn" id="9_xrn22"]
+[ext_resource type="PackedScene" uid="uid://b7chv66nys6xp" path="res://Scenes/Objects/sling_shot.tscn" id="12_1qnut"]
 [ext_resource type="PackedScene" uid="uid://dovtq8sh51gk" path="res://Scenes/UI/reset.tscn" id="12_m35j8"]
 [ext_resource type="PackedScene" uid="uid://bunf7hxxven2r" path="res://Scenes/UI/hint.tscn" id="13_3s0gs"]
+[ext_resource type="Texture2D" uid="uid://k4hgjg7i02tu" path="res://Assets/fork.png" id="13_bfs5l"]
 [ext_resource type="PackedScene" uid="uid://ku81r8qfijm5" path="res://Scenes/hint_icon.tscn" id="14_4f0fj"]
+[ext_resource type="PackedScene" uid="uid://cmor0c57c2b4x" path="res://Scenes/Objects/plug_area.tscn" id="14_bfs5l"]
 
 [node name="Level0" type="Node2D"]
 
@@ -22,26 +22,25 @@
 [node name="Card" parent="." instance=ExtResource("2_n12qs")]
 position = Vector2(-368, 872.00006)
 object = ExtResource("3_xrn22")
-icon = ExtResource("4_1qnut")
 
 [node name="Rock" parent="." instance=ExtResource("2_n12qs")]
 position = Vector2(14, 872)
 object = ExtResource("4_hip6n")
-icon = ExtResource("5_8q1ft")
-
-[node name="Fork" parent="." instance=ExtResource("2_n12qs")]
-position = Vector2(408, 872)
-object = ExtResource("3_f852d")
-icon = ExtResource("4_1dosi")
 
 [node name="Bed" parent="." instance=ExtResource("5_x6hu1")]
 
 [node name="Wardrobe" parent="." instance=ExtResource("6_863cj")]
 
 [node name="Controller" parent="." instance=ExtResource("9_xrn22")]
-position = Vector2(-272, -456)
+position = Vector2(552, -360)
 
 [node name="reset" parent="." instance=ExtResource("12_m35j8")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
 
 [node name="Hint" parent="." instance=ExtResource("13_3s0gs")]
 visible = false
@@ -49,5 +48,22 @@ offset_left = -2040.0
 offset_top = -1088.0
 offset_right = 1800.0
 offset_bottom = 1072.0
+mouse_filter = 2
+hint_text = "ANGRY BIRDS!!!!!"
 
 [node name="HintIcon" parent="." instance=ExtResource("14_4f0fj")]
+mouse_filter = 2
+
+[node name="SlingShot" parent="." instance=ExtResource("12_1qnut")]
+position = Vector2(616, 312)
+
+[node name="Card2" parent="." instance=ExtResource("2_n12qs")]
+position = Vector2(392, 854)
+object = ExtResource("3_f852d")
+
+[node name="Fork" type="Sprite2D" parent="Card2"]
+scale = Vector2(0.20731492, 0.2959694)
+texture = ExtResource("13_bfs5l")
+
+[node name="PlugArea" parent="." instance=ExtResource("14_bfs5l")]
+position = Vector2(1704, 392)

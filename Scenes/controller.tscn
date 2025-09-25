@@ -8,6 +8,16 @@ bounce = 0.4
 
 [sub_resource type="GDScript" id="GDScript_jf33l"]
 script/source = "extends RigidBody2D
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+
+func play_death():
+	cpu_particles_2d.emitting = true
+	sprite_2d.visible=false
+	await cpu_particles_2d.finished
+	
+	queue_free()
 "
 
 [node name="Controller" type="RigidBody2D"]

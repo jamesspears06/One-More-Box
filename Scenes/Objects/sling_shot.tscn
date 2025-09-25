@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7chv66nys6xp"]
+
+[ext_resource type="Script" uid="uid://djv2hdet88p8n" path="res://Scripts/sling_shot.gd" id="1_w6xa0"]
+[ext_resource type="Texture2D" uid="uid://bamdechh7s4go" path="res://Assets/Slingshot.png" id="2_w6xa0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6xa0"]
+size = Vector2(446, 421)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tt1co"]
+radius = 175.55911
+
+[node name="SlingShot" type="Node2D"]
+script = ExtResource("1_w6xa0")
+
+[node name="equipArea" type="Area2D" parent="."]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="equipArea"]
+position = Vector2(19, -59.5)
+shape = SubResource("RectangleShape2D_w6xa0")
+debug_color = Color(0.9830715, 0, 0.36070073, 0.41960785)
+
+[node name="slingIcon" type="Sprite2D" parent="."]
+texture = ExtResource("2_w6xa0")
+
+[node name="CenterOfSlingShot" type="Marker2D" parent="."]
+position = Vector2(0, -79)
+
+[node name="LeftLine" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(32, -96, -168, -104)
+width = 20.0
+default_color = Color(0.10980392, 0.06666667, 0.039215688, 1)
+
+[node name="RightLine" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(-33, -98, -168, -104)
+width = 20.0
+default_color = Color(0.078431375, 0.043137256, 0.039215688, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, -97)
+shape = SubResource("CircleShape2D_tt1co")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="body_entered" from="equipArea" to="." method="_on_equip_area_body_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

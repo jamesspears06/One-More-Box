@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmor0c57c2b4x"]
+
+[ext_resource type="Script" uid="uid://dtwttq1p2wdlx" path="res://Scripts/plug.gd" id="1_s13sf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s0gs"]
+size = Vector2(112, 358)
+
+[node name="PlugArea" type="Area2D"]
+script = ExtResource("1_s13sf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3s0gs")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
