@@ -1,7 +1,8 @@
 extends Control
 
 func _ready() -> void:
-	size = get_viewport_rect().size
+	var s = get_viewport_rect().size
+	self.set_deferred("size",s)
 
 
 

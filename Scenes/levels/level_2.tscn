@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://53co7fn3klqy" path="res://Scenes/Objects/trampoline.tscn" id="16_5i3kd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dspjw"]
-size = Vector2(185, 45)
+size = Vector2(400, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh68y"]
 size = Vector2(883.5, 660)
@@ -66,7 +66,7 @@ position = Vector2(-723, 64)
 position = Vector2(321, 118)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeskArea"]
-position = Vector2(-1057.5, 15.5)
+position = Vector2(-969, 22)
 shape = SubResource("RectangleShape2D_dspjw")
 
 [node name="EndArea" type="Area2D" parent="."]
@@ -92,7 +92,7 @@ position = Vector2(24, 864)
 object = ExtResource("2_q2mrg")
 
 [node name="Trampoline" parent="." instance=ExtResource("16_5i3kd")]
-position = Vector2(-1000, 208)
+position = Vector2(-1056, 208)
 
 [node name="Card" parent="." instance=ExtResource("7_dspjw")]
 position = Vector2(384, 832)
