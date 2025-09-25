@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://udjoyep36q3w"]
+[gd_scene load_steps=17 format=3 uid="uid://udjoyep36q3w"]
 
 [ext_resource type="PackedScene" uid="uid://867cnwp2opxe" path="res://Scenes/Room.tscn" id="1_tjgfl"]
 [ext_resource type="PackedScene" uid="uid://b3rut2nltkk41" path="res://Scenes/Objects/toy_car.tscn" id="2_q2mrg"]
@@ -9,12 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c0yv0x0sudyr5" path="res://Scenes/card.tscn" id="7_dspjw"]
 [ext_resource type="PackedScene" uid="uid://bl8u5r7w24jug" path="res://Scenes/controller.tscn" id="7_fh68y"]
 [ext_resource type="PackedScene" uid="uid://dktfhjiehqb0e" path="res://Scenes/Objects/rock.tscn" id="8_fh68y"]
-[ext_resource type="Texture2D" uid="uid://cmpdcyocwv2pg" path="res://Sprites/rock.png" id="9_35bfj"]
 [ext_resource type="PackedScene" uid="uid://ccbax6ywlm014" path="res://Scenes/Objects/bed.tscn" id="9_fkc1a"]
 [ext_resource type="Script" uid="uid://3tx0n7wd86y3" path="res://Scenes/levels/end_area.gd" id="10_35bfj"]
 [ext_resource type="AudioStream" uid="uid://vy4hn6swqokv" path="res://Assets/Tom and Jerry sound effect 20+.mp3" id="11_l8nyl"]
 [ext_resource type="PackedScene" uid="uid://dovtq8sh51gk" path="res://Scenes/UI/reset.tscn" id="13_lnq35"]
-[ext_resource type="Texture2D" uid="uid://coosdug166t4o" path="res://Sprites/Car.png" id="15_l8nyl"]
 [ext_resource type="PackedScene" uid="uid://53co7fn3klqy" path="res://Scenes/Objects/trampoline.tscn" id="16_5i3kd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dspjw"]
@@ -34,6 +32,7 @@ position = Vector2(-2285, -722.5)
 position = Vector2(-2283, 370)
 
 [node name="Skatebboard" parent="." instance=ExtResource("2_u4prk")]
+visible = false
 position = Vector2(-902, 487)
 
 [node name="Sprite2D" parent="Skatebboard" index="0"]
@@ -59,7 +58,6 @@ rotation = -3.1415927
 [node name="Rock" parent="." instance=ExtResource("7_dspjw")]
 position = Vector2(-360, 871.00006)
 object = ExtResource("8_fh68y")
-icon = ExtResource("9_35bfj")
 
 [node name="Desk" parent="." instance=ExtResource("6_dspjw")]
 position = Vector2(-723, 64)
@@ -92,10 +90,13 @@ debug_color = Color(0.13318786, 0.6467438, 0, 0.41960785)
 [node name="Toycar" parent="." instance=ExtResource("7_dspjw")]
 position = Vector2(24, 864)
 object = ExtResource("2_q2mrg")
-icon = ExtResource("15_l8nyl")
 
 [node name="Trampoline" parent="." instance=ExtResource("16_5i3kd")]
-position = Vector2(-384, -72)
+position = Vector2(-1000, 208)
+
+[node name="Card" parent="." instance=ExtResource("7_dspjw")]
+position = Vector2(384, 832)
+object = ExtResource("2_u4prk")
 
 [connection signal="body_entered" from="EndArea" to="EndArea" method="_on_body_entered"]
 

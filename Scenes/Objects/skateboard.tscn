@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b606wi2jv6jiq"]
+[gd_scene load_steps=5 format=3 uid="uid://b606wi2jv6jiq"]
 
 [ext_resource type="Texture2D" uid="uid://gfyhaau2a3hq" path="res://Assets/skateboard.png" id="1_32wqv"]
+[ext_resource type="Script" uid="uid://c35j8dpgjes4y" path="res://Scripts/skateboard.gd" id="1_ruuhl"]
 [ext_resource type="Texture2D" uid="uid://djoleko2pw1rv" path="res://Assets/skateboard wheel.png" id="2_32wqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32wqv"]
@@ -8,6 +9,8 @@ radius = 24.0
 
 [node name="Skateboard" type="RigidBody2D"]
 mass = 3.0
+script = ExtResource("1_ruuhl")
+metadata/_custom_type_script = "uid://b4vuepy5vpgvp"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_32wqv")
@@ -32,3 +35,13 @@ shape = SubResource("CircleShape2D_32wqv")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(80, -24)
 shape = SubResource("CircleShape2D_32wqv")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -152.0
+offset_top = -72.0
+offset_right = 160.0
+offset_bottom = 8.0
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
